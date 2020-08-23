@@ -18,13 +18,9 @@
         <div class="info">
           
             @auth
-           
                 <a href="#" class="d-block">
                   {{ auth()->user()->name }} <br>
-                  
-                </a>
-              
-              
+                </a>                          
             @endauth
             
         </div>
@@ -38,7 +34,7 @@
 
 
           {{-- Publicaciones --}}
-          <li class="nav-item has-treeview">
+          <li class="nav-item has-treeview {{ request()->is('admin/post*') ? 'menu-open' : '' }}">
             <a href="#" class="nav-link">
               <i class="fas fa-newspaper"></i>
               <p class="pl-1">
@@ -48,13 +44,13 @@
             </a>
             <ul class="pl-1 nav nav-treeview ">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href=" {{ route('admin.post.index') }}" class="nav-link {{ request()->is('admin/post') ? 'active' : '' }}">
                   <i class="fas fa-list"></i>
                   <p class="pl-1"> Ver Publicaciones</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('admin.post.create') }}" class="nav-link {{ request()->is('admin/post/create') ? 'active' : '' }}">
                   <i class="fas fa-plus"></i>
                   <p class="pl-1"> Nueva Publicación</p>
                 </a>

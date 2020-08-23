@@ -1,5 +1,11 @@
 @extends('admin.layouts.app')
 
+@section('header')
+<ol class="breadcrumb float-sm-right">
+  <li class="breadcrumb-item active">Inicio</li>
+</ol>
+@endsection
+
 @section('titlenav')
    Administración
 @endsection

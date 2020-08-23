@@ -1,7 +1,8 @@
 {
     "/js/app.js": "/js/app.js?id=7bb610affcee76a54700",
-    "/css/app.css": "/css/app.css?id=a6ecb7a59e00e85a27db",
+    "/css/app.css": "/css/app.css?id=7d1588d924a3152e2c6c",
     "/css/blog.css": "/css/blog.css?id=c738d8cc3ae3a44c84b6",
-    "/js/vendor.js": "/js/vendor.js?id=ceb1235f4859f266862d",
+    "/js/vendor.js": "/js/vendor.js?id=6d21fc63558f6b2490ca",
+    "/js/admin-datatable-script.js": "/js/admin-datatable-script.js?id=c6ef4006ca0e5e0c3d4d",
     "/js/blog.js": "/js/blog.js?id=9a650f793810260af4c9"
 }

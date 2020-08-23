@@ -40,10 +40,7 @@
             <h1>@yield('title', 'Inicio')</h1>
           </div>
           <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Blank Page</li>
-            </ol>
+            @yield('header')
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -75,6 +72,7 @@
 <!-- ./wrapper -->
 <script src="{{ mix('js/vendor.js') }}"></script>
 <script src="{{ mix('js/app.js') }}"></script>
+<script src="{{ mix('js/admin-datatable-script.js') }}"></script>
 <!-- jQuery -->
 <!-- <script src="../../plugins/jquery/jquery.min.js"></script> -->
 <!-- Bootstrap 4 -->
