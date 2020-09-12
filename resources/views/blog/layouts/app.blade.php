@@ -3,10 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
+    <meta name="descripcion" content="@yield('meta-content', 'Blog')">
+
     <meta name="author" content="">
 
-    <title>{{ env('APP_NAME') }} | @yield('titlenav', 'Blog')</title>
+    <title>{{ env('APP_NAME') }} | @yield('meta-title', 'Blog')</title>
 
     <!-- Lato Font -->
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>

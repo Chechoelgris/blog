@@ -1,8 +1,17 @@
 {
     "/js/app.js": "/js/app.js?id=7bb610affcee76a54700",
-    "/css/app.css": "/css/app.css?id=7d1588d924a3152e2c6c",
+    "/css/app.css": "/css/app.css?id=92e57a56c7f97b438bfb",
+    "/css/datatables.css": "/css/datatables.css?id=599c1d60f9b4f918a16b",
+    "/css/tempusdominus.css": "/css/tempusdominus.css?id=be1a1448dd867946cb6a",
+    "/css/summernote.css": "/css/summernote.css?id=9b25d83b27f44860fad4",
+    "/css/select2.css": "/css/select2.css?id=9f54e6414f87e0d14b9e",
     "/css/blog.css": "/css/blog.css?id=c738d8cc3ae3a44c84b6",
-    "/js/vendor.js": "/js/vendor.js?id=6d21fc63558f6b2490ca",
-    "/js/admin-datatable-script.js": "/js/admin-datatable-script.js?id=c6ef4006ca0e5e0c3d4d",
+    "/zendero/css/blog.css": "/zendero/css/blog.css?id=5c40eb2c532b3c7e74c3",
+    "/js/vendor.js": "/js/vendor.js?id=b699de75fda2a56424b0",
+    "/js/admin-datatable-script.js": "/js/admin-datatable-script.js?id=2236a6bc3a57178812fc",
+    "/js/admin-datepicker-script.js": "/js/admin-datepicker-script.js?id=98c3f331b2aa2537b85d",
+    "/js/admin-summernote-script.js": "/js/admin-summernote-script.js?id=4b754cdd9bf04a08c247",
+    "/js/admin-select2-script.js": "/js/admin-select2-script.js?id=7fa055849ed8ba6c5706",
+    "/js/admin-dropzone-script.js": "/js/admin-dropzone-script.js?id=09afc3db0e2c92bc308b",
     "/js/blog.js": "/js/blog.js?id=9a650f793810260af4c9"
 }

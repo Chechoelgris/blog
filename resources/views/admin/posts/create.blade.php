@@ -1,44 +1,38 @@
-@extends('admin.layouts.app')
+<div class="modal fade" id="crearPublicacionModal" tabindex="-1" aria-labelledby="crearPublicacionModalLabel" aria-hidden="true">
+    <form method="POST" action="{{ route('admin.post.store') }}">
+      @csrf
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="crearPublicacionModalLabel">Título de la nueva publicación</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+    
+            <div class="form-group ">
+              {{-- <label class="{{ $errors->has('title') ? 'text-danger' : 'text-seagreen' }}" for="title ">Título de la publicación</label> --}}
+              <input class="form-control {{ $errors->has('title') ? 'border border-danger border-3' : '' }}" 
+              value="{{ old('title') }}"
+              type="text" 
+              name="title" 
+              id="title-post-input" 
+              placeholder="Ingresa un título para la publicación"
+              required>
 
-@section('header')
-<ol class="breadcrumb float-sm-right">
-  <li class="breadcrumb-item"><a href="{{ route('admin') }}">Inicio</a></li>
-  <li class="breadcrumb-item active"><a href="{{ route('admin') }}">Publicaciones</a></li>
-  <li class="breadcrumb-item active">Nuevo</li>
-</ol>
-@endsection
+              {!!  $errors->first('title', '<span class="help-block text-danger">:message</span>') !!}
+              
+            </div>
 
-@section('titlenav')
-   Publicaciones
-@endsection
 
-@section('title')
-    <i class="fas fa-list pr-1"></i> Nueva Publicaciones
-@endsection
-
-@section('content')
-
-  <div class="card">
-      <div class="card-header">
-        <h3 class="card-title">Title</h3>
-
-        <div class="card-tools">
-          <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-            <i class="fas fa-minus"></i></button>
-          <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-            <i class="fas fa-times"></i></button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button  class="btn btn-primary">Crear</button>
+          </div>
         </div>
       </div>
-      <div class="card-body">
-        Algo importante y de valor deberia ir aqui!
-      </div>
-      <!-- /.card-body -->
-      <div class="card-footer">
-        algun mensaje cariñoso
-      </div>
-      <!-- /.card-footer-->
-  </div>
 
-  
-    
-@endsection
+    </form>
+  </div>

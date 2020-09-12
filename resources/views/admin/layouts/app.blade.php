@@ -3,83 +3,75 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title> {{ env('APP_NAME') }} | @yield('titlenav', 'Administración')</title>
+  <title> {{ env('APP_NAME') }} | @yield('meta-title', 'Administración')</title>
+  <meta name="robots" content="noindex" />
+
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  @stack('styles')
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-  <!-- Font Awesome -->
-  {{-- <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css"> --}}
-  
+
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-
-  <!-- overlayScrollbars -->
-  {{-- <link rel="stylesheet" href="../../dist/css/adminlte.min.css"> --}}
 
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition sidebar-mini">
-<!-- Site wrapper -->
-<div class="wrapper">
-  <!-- Navbar -->
-  @include('admin.layouts.navbar')
-  <!-- /.navbar -->
+<body class="hold-transition sidebar-mini ">
+  <!-- Site wrapper -->
+  <div class="wrapper ">
+    <!-- Navbar -->
+    @include('admin.layouts.navbar')
+    <!-- /.navbar -->
 
-  <!-- Main Sidebar Container -->
-  @include('admin.layouts.sidebar')
+    <!-- Main Sidebar Container -->
+    @include('admin.layouts.sidebar')
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>@yield('title', 'Inicio')</h1>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper bg-dark-mode">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              @yield('title', 'Inicio')
+            </div>
+            <div class="col-sm-6">
+              @yield('header')
+            </div>
           </div>
-          <div class="col-sm-6">
-            @yield('header')
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
+        </div><!-- /.container-fluid -->
+      </section>
 
-    <!-- Main content -->
-    <section class="content">
-     
-      <!-- Default box -->
-      @yield('content')
-      <!-- /.card -->
+      <!-- Main content -->
+      <section class="content">
+        @if (session()->has('flash'))
+            <div class="alert alert-success">{{ session('flash') }}</div>
+        @endif
 
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-
-  <!-- Footer -->
-  @include('admin.layouts.footer')
+        @yield('content')
   
-  <!-- /.footer -->
+      </section>
+      
+    </div>
+    
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
-<script src="{{ mix('js/vendor.js') }}"></script>
-<script src="{{ mix('js/app.js') }}"></script>
-<script src="{{ mix('js/admin-datatable-script.js') }}"></script>
-<!-- jQuery -->
-<!-- <script src="../../plugins/jquery/jquery.min.js"></script> -->
-<!-- Bootstrap 4 -->
-<!-- <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
-<!-- AdminLTE App -->
-<!-- <script src="../../dist/js/adminlte.min.js"></script> -->
-<!-- AdminLTE for demo purposes -->
-<!-- <script src="../../dist/js/demo.js"></script> -->
+    <!-- Footer -->
+    @include('admin.layouts.footer')
+    <!-- /.footer -->
+
+  </div>
+
+  
+  <!-- ./wrapper -->
+  <script src="{{ mix('js/vendor.js') }}"></script>
+  <script src="{{ mix('js/app.js') }}"></script>
+  {{-- Inicializar librerias --}}
+  @stack('scripts')
+  
+  @include('admin.posts.create')
+  
+  
 </body>
 </html>

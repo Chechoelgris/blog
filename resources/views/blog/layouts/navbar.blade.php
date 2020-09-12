@@ -7,9 +7,9 @@
     
   </ul>
 <!-- Navbar and Header -->
-<nav class="nav-extended nav-full-header z-depth-0 blue-grey darken-3">
+<nav class="nav-extended nav-full-header z-depth-0 blue-grey darken-3" style="height: 94% !important">
   <div class="nav-background">
-    <img class="active" src="http://placehold.it/1400x600" alt="control room">
+    <img class="active" src="/img/fondo.jpg" alt="control room">
   </div>
   <div class="nav-wrapper container">
     <a href="index.html" class="brand-logo"><i class="material-icons">camera</i>{{ env('APP_NAME') }}</a>

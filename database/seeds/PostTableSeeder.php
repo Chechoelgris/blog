@@ -14,7 +14,8 @@ class PostTableSeeder extends Seeder
     {
         $post = new Post;
         $post->title = "Mi Primer Post";
-        $post->extract = "Extracto de mi primer post";
+        $post->slug = Str::slug($post->title, '_');
+        $post->excerpt = "Extracto de mi primer post";
         $post->body = "Contenido de mi primer post";
         $post->category_id = 1;
         $post->published_at = Carbon::now();
@@ -22,7 +23,8 @@ class PostTableSeeder extends Seeder
 
         $post = new Post;
         $post->title = "Mi Segundo Post";
-        $post->extract = "Extracto de mi segundo post";
+        $post->slug = Str::slug($post->title, '_');
+        $post->excerpt = "Extracto de mi segundo post";
         $post->body = "Contenido de mi segundo post";
         $post->category_id = 2;
         $post->published_at = Carbon::now();

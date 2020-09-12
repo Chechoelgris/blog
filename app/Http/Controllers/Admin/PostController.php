@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Post;
+use App\Category;
+use App\Tag;
+use Carbon\Carbon;
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -23,11 +27,13 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('admin.posts.create');
+    // public function create()
+    // {
+    //     $tags  = Tag::all();
+    //     $categories  = Category::all();
+    //     return view('admin.posts.create', compact('categories', 'tags'));
 
-    }
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -37,19 +43,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $this->validate($request, ['title' => 'required']);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+       
+        $post = Post::create([
+            'title' => $request->get('title'),
+            'slug' => Str::slug($request->get('title'), '_'),
+            
+            ]);
+        return redirect()->route('admin.post.edit', $post);
     }
+ 
 
     /**
      * Show the form for editing the specified resource.
@@ -57,9 +61,13 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        
+        $tags  = Tag::all();
+        $categories  = Category::all();
+        return view('admin.posts.edit', compact('categories', 'tags', 'post'));
+        
     }
 
     /**
@@ -69,9 +77,36 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Post $post, Request $request)
     {
-        //
+        
+        //Validacion
+        $this->validate($request, [
+            'title' => 'required|max:50',
+            'body' => 'required',
+            'category' => 'required',
+            'tags' => 'required',
+            'excerpt' => 'required',
+            'published_at' => 'date|nullable',
+        ]);
+       
+        //Guardado
+    
+        
+        $post->title = $request->title;
+        $post->slug = Str::slug($request->title, '_');
+        $post->body = $request->body;
+        $post->excerpt = $request->excerpt;
+        $post->published_at = isset($request->published_at) ? Carbon::parse($request->published_at) : null;
+        $post->category_id = $request->category;
+        
+        $post->save();
+
+        //Etiquetas
+        $post->tags()->sync($request->get('tags'));
+        return redirect()->route('admin.post.edit', $post)->with('flash', 'Tu publicación ha sido guardada');
+
+
     }
 
     /**

@@ -7,3 +7,6 @@ $('#posts-table').DataTable({
     "autoWidth": false,
     "responsive": true,
   });
+
+ 
+   

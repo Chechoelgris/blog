@@ -6,7 +6,7 @@
 </ol>
 @endsection
 
-@section('titlenav')
+@section('meta-title')
    Administración
 @endsection
 

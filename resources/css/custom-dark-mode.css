@@ -1,0 +1,60 @@
+:root {
+    --dark-menus-bg-color: #212121;
+    --dark-card-bg-color: #616161;
+    --dark-body-bg-color: #424242;
+    --dark-titles-text-color: seagreen;
+}
+*{
+    color: var(--dark-card-bg-color);
+}
+
+.border-seagreen{
+    border: 1px solid var(--dark-titles-text-color);
+}
+li.select2-selection__choice,li.page-item.active>a.page-link,.bg-seagreen{
+    background-color: var(--dark-titles-text-color) !important;
+}
+.bg-dark-mode{
+    background-color: var(--dark-body-bg-color);
+}
+.bg-card-dark-mode{
+    background-color: var(--dark-card-bg-color);
+}
+.dark-dropdown{
+    padding: 0.5rem 1rem;
+    display: block;
+    width: 100%;
+}
+.text-seagreen,a,a:hover{
+    color: var(--dark-titles-text-color) !important;
+}
+
+.bg-nav-dark-mode, .bg-footer-dark-mode, .bg-dropdown-title{
+    background-color: var(--dark-menus-bg-color) !important;
+}
+ .bg-nav-dark-mode:hover.bg-nav-dark-mode:hover{
+    border-bottom: 1px solid var(--dark-titles-text-color);;
+} 
+
+.bg-footer-dark-mode:hover{
+    border-top: 1px solid var(--dark-titles-text-color);
+}
+
+.text-nav-dark-mode{ 
+    color: var(--dark-titles-text-color);
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .3s;
+}
+.text-nav-dark-mode:hover{ 
+    color: var(--dark-titles-text-color);
+    background-size: 100% 2px;
+}
+
+span.select2{
+    width: 100%;
+}
+

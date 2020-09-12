@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4 navbar-navy">
+<aside class="main-sidebar sidebar-dark-primary elevation-4 bg-nav-dark-mode">
     <!-- Brand Logo -->
     <a href="../../index3.html" class="brand-link">
       <img src="/img/AdminLTELogo.png"
@@ -9,7 +9,7 @@
     </a>
 
     <!-- Sidebar -->
-    <div class="sidebar">
+    <div class="sidebar ">
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
@@ -18,8 +18,8 @@
         <div class="info">
           
             @auth
-                <a href="#" class="d-block">
-                  {{ auth()->user()->name }} <br>
+                <a href="#" class="d-block text-seagreen">
+                  {{ auth()->user()->name }} 
                 </a>                          
             @endauth
             
@@ -36,23 +36,23 @@
           {{-- Publicaciones --}}
           <li class="nav-item has-treeview {{ request()->is('admin/post*') ? 'menu-open' : '' }}">
             <a href="#" class="nav-link">
-              <i class="fas fa-newspaper"></i>
-              <p class="pl-1">
+              <i class="text-seagreen fas fa-newspaper"></i>
+              <p class="text-seagreen">
                  Publicaciones
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="pl-1 nav nav-treeview ">
+            <ul class="pl-3 nav nav-treeview ">
               <li class="nav-item">
-                <a href=" {{ route('admin.post.index') }}" class="nav-link {{ request()->is('admin/post') ? 'active' : '' }}">
-                  <i class="fas fa-list"></i>
-                  <p class="pl-1"> Ver Publicaciones</p>
+                <a href=" {{ route('admin.post.index') }}" class="nav-link  {{ request()->is('admin/post') ? 'active' : '' }}">
+                  <i class="text-seagreen fas fa-list"></i>
+                  <p class="pl-1 text-seagreen"> Ver Publicaciones</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('admin.post.create') }}" class="nav-link {{ request()->is('admin/post/create') ? 'active' : '' }}">
-                  <i class="fas fa-plus"></i>
-                  <p class="pl-1"> Nueva Publicación</p>
+                <a href="#" class="nav-link" data-toggle="modal" data-target="#crearPublicacionModal">
+                  <i class="text-seagreen fas fa-plus"></i>
+                  <p class="pl-1 text-seagreen"> Nueva Publicación</p>
                 </a>
               </li>
               
@@ -64,25 +64,25 @@
           {{-- Categorias --}}
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="fas fa-object-group"></i>
-              <p>
+              <i class="text-seagreen fas fa-object-group"></i>
+              <p class="text-seagreen">
                 Categorías
                 <i class="fas fa-angle-left right"></i>
                 {{-- <span class="badge badge-info right">6</span> --}}
               </p>
             </a>
             
-            <ul class="pl-1 nav nav-treeview ">
+            <ul class="pl-3 nav nav-treeview ">
                 <li class="nav-item">
                   <a href="#" class="nav-link">
-                    <i class="fas fa-list"></i>
-                    <p class="pl-1"> Ver Categorías</p>
+                    <i class="text-seagreen fas fa-list"></i>
+                    <p class="pl-1 text-seagreen"> Ver Categorías</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="#" class="nav-link">
-                    <i class="fas fa-plus"></i>
-                    <p class="pl-1"> Nueva Categoría</p>
+                    <i class="text-seagreen fas fa-plus"></i>
+                    <p class="pl-1 text-seagreen"> Nueva Categoría</p>
                   </a>
                 </li>
             </ul>
@@ -91,25 +91,25 @@
           {{-- Etiquetas --}}
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="fas fa-hashtag"></i>
-              <p>
+              <i class="text-seagreen fas fa-hashtag"></i>
+              <p class="text-seagreen">
                 Etiquetas
                 <i class="fas fa-angle-left right"></i>
                 {{-- <span class="badge badge-info right">6</span> --}}
               </p>
             </a>
             
-            <ul class="pl-1 nav nav-treeview ">
+            <ul class="pl-3 nav nav-treeview ">
                 <li class="nav-item">
                   <a href="#" class="nav-link">
-                    <i class="fas fa-list"></i>
-                    <p class="pl-1"> Ver Etiquetas</p>
+                    <i class="text-seagreen fas fa-list"></i>
+                    <p class="pl-1 text-seagreen"> Ver Etiquetas</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="#" class="nav-link">
-                    <i class="fas fa-plus"></i>
-                    <p class="pl-1"> Nueva Etiqueta</p>
+                    <i class="text-seagreen fas fa-plus"></i>
+                    <p class="pl-1 text-seagreen"> Nueva Etiqueta</p>
                   </a>
                 </li>
             </ul>

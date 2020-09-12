@@ -17,7 +17,15 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'PagesController@wellcome')->name('home'); #Principal
-Route::get('blog', 'PagesController@blog')->name('blog'); #Blog
+//Route::get('blog', 'PagesController@blog')->name('blog'); #Blog
+//Route::get('blog/{id}', 'PostController@show')->name('blog'); #Blog
+
+Route::group(['prefix' => 'blog'], function () {
+    Route::get('/', 'PagesController@blog')->name('blog'); #Blog
+    Route::get('/{post}', 'PostController@show'); #Show Blog
+
+
+});
 
     #Grupo Administración (Intranet)
     Route::group([
@@ -28,7 +36,11 @@ Route::get('blog', 'PagesController@blog')->name('blog'); #Blog
             Route::get('/', 'PagesController@admin')->name('admin'); #Raiz Administración
             Route::get('post', 'Admin\PostController@index')->name('admin.post.index'); #Post Administración
             Route::get('post/create', 'Admin\PostController@create')->name('admin.post.create'); #Post Administración
-
+            Route::post('posts', 'Admin\PostController@store')->name('admin.post.store');
+            Route::get('posts/{post}', 'Admin\PostController@edit')->name('admin.post.edit');
+            Route::put('posts/{post}', 'Admin\PostController@update')->name('admin.post.update');
+            
+            Route::post('posts/{post}/photos', 'Admin\PhotosController@store')->name('admin.posts.photo.store');
         }
     );
 

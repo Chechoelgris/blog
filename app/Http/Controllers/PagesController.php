@@ -3,16 +3,23 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Post;
+use App\Category;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
     public function blog()
     {
-        $posts = \App\Post::latest('published_at')->get();
-        $categories = \App\Category::all();
+       
 
-        return view('blog/blog', compact('posts'), compact('categories'));
+        $posts = Post::published()->get();
+
+        $categories = Category::all();
+
+        #return view('blog/blog', compact('posts'), compact('categories')); //Blog Materialize
+        return view('zendero/blog', compact('posts'), compact('categories')); //Blog Zendero curso
     }
 
 
