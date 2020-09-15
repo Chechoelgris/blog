@@ -6,8 +6,34 @@
 @section('blog-content')
 
 @foreach ($posts as $post)
-    <article class="post no-image">
+    <article class="post ">
 
+       
+        
+        <section class="post ">
+            <div class="contenedor-galeria">
+                @if ($post->photos->count() === 1)
+
+                    <figure><img src="{{ $post->photos()->first()->url }}" class="img-responsive" alt=""></figure>
+
+                @elseif($post->photos->count() > 1)
+                    @foreach ($post->photos->take(4) as $photo)
+                        
+                        <figure class="" style="position: relative">
+
+                            @if ($loop->iteration === 4)
+                                <div class="overlay">{{ $post->photos->count() }} Fotos</div>
+                            @endif
+                            
+                            <img class="galeria__img" src="{{  url($photo->url)  }}" alt="">
+                        </figure>
+                    @endforeach
+                @endif
+            </div>
+        </section>
+
+        
+        
         <div class="content-post">
             <header class="container-flex space-between">
                 <div class="date">
@@ -32,8 +58,16 @@
                 </div>
             </footer>
         </div>
-        
     </article>
+
+     
+        
+        
+     
+     
+    
+</article>
+    
 @endforeach
     
 <div class="pagination">

@@ -22,7 +22,7 @@ Route::get('/', 'PagesController@wellcome')->name('home'); #Principal
 
 Route::group(['prefix' => 'blog'], function () {
     Route::get('/', 'PagesController@blog')->name('blog'); #Blog
-    Route::get('/{post}', 'PostController@show'); #Show Blog
+    Route::get('/{post}', 'PostController@show')->name('post.show'); #Show Blog
 
 
 });

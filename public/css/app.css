@@ -31230,8 +31230,8 @@ a.text-muted:hover {
     --dark-body-bg-color: #424242;
     --dark-titles-text-color: seagreen;
 }
-*{
-    color: var(--dark-card-bg-color);
+*,ul.pagination>li.page-item.active>a.page-link{
+    color: var(--dark-card-bg-color) !important;
 }
 
 .border-seagreen{
@@ -31282,5 +31282,9 @@ li.select2-selection__choice,li.page-item.active>a.page-link,.bg-seagreen{
 
 span.select2{
     width: 100%;
+}
+
+.dz-error-message > span {
+    color: white;
 }
 

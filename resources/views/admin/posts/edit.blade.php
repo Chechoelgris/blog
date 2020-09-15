@@ -17,8 +17,9 @@
 @section('title')
   <h1 class="text-light">
     <i class="fas fa-list pr-1"></i> Nueva Publicación
+    {{-- <p>{{ $post->published_at->format('d/m/Y') }}</p> --}}
   </h1>
-  <p>{{ $post }}</p>
+    
 
 @endsection
 
@@ -63,6 +64,7 @@
           <div class="card-body">
   
             <div class="form-group">
+              
               <label class="{{ $errors->has('published_at') ? 'text-danger' : 'text-seagreen' }}" for="reservationdate">Fecha de creación</label>
                 <div class="input-group date" id="reservationdate" data-target-input="nearest">
                     <input type="text" 
@@ -70,7 +72,7 @@
                     name="published_at"
                     data-target="#reservationdate" 
                     placeholder="Selecciona una fecha"
-                    value="{{ old('published_at', $post->published_at ? $post->published_at : null) }}"/>
+                    value="{{ old('published_at', $post->published_at ? $post->published_at->format('d-m-Y') : null) }}"/>
                     
                     <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
@@ -122,6 +124,7 @@
             </div>
            
             <div class="form-group">
+              <label class="text-seagreen">Imágenes</label>
               <div class="dropzone"></div>
             </div>
             
@@ -160,16 +163,18 @@
       'X-CSRF-TOKEN': "{{ csrf_token() }}",
     },
    url : '/admin/posts/{{ $post->slug }}/photos',
-  //  acceptedFiles: "image/*",
-  //  maxFilesize: 2,
+   acceptedFiles: "image/*",
+   maxFilesize: 2,
    paramName: "photo",
    dictDefaultMessage: 'Arrastra las imagenes aquí para subirlas',
 });
 
 myDropzone.on('error', function (file, res){
   var msg = res.errors.photo[0];
-  $('.dz-error-message').addClass( "bg-dropdown-title" );
-  $('.dz-error-message > span').text(msg).addClass( "text-seagreen" );
+  $('.dz-error-message:last > span').text(msg);
+  
+ 
+
 });
 </script>
 <script src="{{ mix('js/admin-dropzone-script.js') }}"></script>

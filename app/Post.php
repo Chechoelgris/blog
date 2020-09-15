@@ -22,7 +22,11 @@ class Post extends Model
 
     public function tags()
     {
-        return $this->belongsToMany(Tag::Class);
+        return $this->belongsToMany(Tag::class);
+    }
+    public function photos(){
+        return $this->hasMany(Photo::class);
+
     }
 
     public function scopePublished($query)

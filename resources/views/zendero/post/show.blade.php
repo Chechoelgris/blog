@@ -4,7 +4,10 @@
 @section('meta-content', $post->excerpt)
 
 @section('blog-content')
-    <article class="post image-w-text container">
+    <article class="post">
+        
+
+
         <div class="content-post">
         <header class="container-flex space-between">
             <div class="date">

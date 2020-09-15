@@ -41,11 +41,11 @@
   </div> --}}
 
   <div class="card bg-seagreen">
-    <div class="card-header text-light">
-      <h3 class="card-title ">Listado de Publicaciónes</h3>
+    <div class="card-header ">
+      <h3 class="card-title text-light">Listado de Publicaciónes</h3>
       
       <div class="card-tools">
-        <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#crearPublicacionModal">Crear Publicación</button>
+        <button class="btn btn-sm btn-light text-seagreen" data-toggle="modal" data-target="#crearPublicacionModal">Crear Publicación</button>
         {{-- <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
           <i class="fas fa-minus"></i></button> --}}
         {{-- <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
@@ -70,8 +70,17 @@
                 <td>{{ $post->title }}</td>
                 <td>{{ $post->excerpt }}</td>
                 <td>
-                  <a href="#" class="btn btn-sm btn-info bg-seagreen text-light"><i class="fas fa-pen"></i></a>
-                  <a href="#" class="btn btn-sm btn-info"><i class="fas fa-times"></i></a>
+                  {{-- Show --}}
+                  <a href="{{ route('post.show', $post) }}" 
+                  class="btn btn-sm btn-info bg-seagreen text-light"
+                  target="_blank"
+                  ><i class="fas fa-eye text-light"></i></a>
+                  {{-- Edit --}}
+                  <a href="{{ route('admin.post.edit', $post) }}" 
+                  class="btn btn-sm btn-dark  text-light"
+                  ><i class="fas fa-pen text-light"></i></a>
+                  {{-- Delete --}}
+                  <a href="#" class="btn btn-sm btn-danger"><i class="fas fa-trash text-light"></i></a>
 
                 </td>
             </tr>

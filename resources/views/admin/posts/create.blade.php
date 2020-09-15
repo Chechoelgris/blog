@@ -13,7 +13,7 @@
     
             <div class="form-group ">
               {{-- <label class="{{ $errors->has('title') ? 'text-danger' : 'text-seagreen' }}" for="title ">Título de la publicación</label> --}}
-              <input class="form-control {{ $errors->has('title') ? 'border border-danger border-3' : '' }}" 
+              <input class=" form-control {{ $errors->has('title') ? 'border border-danger border-3' : '' }}" 
               value="{{ old('title') }}"
               type="text" 
               name="title" 
@@ -28,8 +28,8 @@
 
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button  class="btn btn-primary">Crear</button>
+            <button type="button" class="btn btn-secondary text-light" data-dismiss="modal">Close</button>
+            <button  class="btn btn-primary text-light">Crear</button>
           </div>
         </div>
       </div>
