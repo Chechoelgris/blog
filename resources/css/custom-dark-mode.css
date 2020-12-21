@@ -62,3 +62,11 @@ span.select2{
     color: white;
 }
 
+.btn-cover-seagreen-semi{
+    background-color: #2e8b5738;
+    position: absolute; 
+    z-index: 1!important;
+}
+.btn-cover-seagreen-semi:hover{
+    filter: brightness(20%);
+}

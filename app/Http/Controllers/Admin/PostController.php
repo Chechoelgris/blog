@@ -100,12 +100,19 @@ class PostController extends Controller
         $post->published_at = isset($request->published_at) ? Carbon::parse($request->published_at) : null;
         $post->category_id = $request->category;
         
-        $post->save();
+        
+        if ($post->save()) {
+            //Etiquetas
+            $post->tags()->sync($request->get('tags'));
 
-        //Etiquetas
-        $post->tags()->sync($request->get('tags'));
-        return redirect()->route('admin.post.edit', $post)->with('flash', 'Tu publicación ha sido guardada');
+            return redirect()->route('admin.post.edit', $post)->with('flash', 'Tu publicación ha sido guardada');
 
+        }
+            return redirect()->route('admin.post.edit', $post)->with('flash', 'No se ha podido guardar la publicación');
+        
+
+        
+       
 
     }
 

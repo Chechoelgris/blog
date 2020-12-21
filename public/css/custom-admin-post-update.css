@@ -1,0 +1,19 @@
+.galeria__img{
+    width: 160px;
+    max-width: 100%;
+    height: 370px;
+    margin-bottom: 6px;
+    object-fit: cover;
+    
+}
+
+.galeria__img{
+    filter: brightness(65%);
+    
+}
+
+.galeria__img:hover{
+    animation: escalar 1.5s infinite alternate;
+    filter: brightness(20%);
+    cursor: pointer;
+}

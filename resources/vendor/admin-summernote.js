@@ -1,7 +1,7 @@
 $(function () {
     // Summernote
     $('#summernote').summernote({
-      height : 210
+      height : 430
   });
 });
  

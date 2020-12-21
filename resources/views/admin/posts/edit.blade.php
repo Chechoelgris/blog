@@ -9,14 +9,14 @@
 @endsection
 
 @section('meta-title')
-   Nueva Publicación
+   Editar Publicación
 @endsection
 
 
 
 @section('title')
   <h1 class="text-light">
-    <i class="fas fa-list pr-1"></i> Nueva Publicación
+    <i class="fas fa-list pr-1"></i> Editar Publicación
     {{-- <p>{{ $post->published_at->format('d/m/Y') }}</p> --}}
   </h1>
     
@@ -106,7 +106,8 @@
               <select multiple="multiple" class="form-control" id="tags" name="tags[]" style="max-width: 100%"
               placeholder="Selecciona una Etiqueta">
                 @foreach ($tags as $tag)
-                    <option {{ collect(old('tags', $post->tags->pluck('id')))->contains($tag->id) ? 'selected' : '' }} value="{{ $tag->id }}">{{ $tag->name }}</option>
+                    <option 
+                    {{ collect(old('tags', $post->tags->pluck('id')))->contains($tag->id) ? 'selected' : '' }} value="{{ $tag->id }}">{{ $tag->name }}</option>
                 @endforeach
               </select>
             </div>
@@ -137,7 +138,35 @@
       </div>
     </div>
   </form>
+{{--  --}}
+  
+   @if ($post->photos->count())
+   <div class="card bg-dark text-center m-0" >
+    <div class="card-body row justify-content-center ">
+      @foreach ($post->photos as $photo)
+        <form class="col-md-1 m-4 p-1" action="{{ route('admin.photos.destroy', $photo) }}" method="POST">
+          @method('DELETE')
+          @csrf    
+          <div  style=" display: flex;
+            justify-content: center;
+            align-items: center;">
 
+            <button class="btn btn-cover-seagreen-semi btn-lg  h-100 w-100 " type="submit">
+              <i class="fas fa-trash text-danger"></i>
+            </button>
+
+            <img class="galeria__img" src="{{  url($photo->url)  }}" alt="">
+            
+          
+          </div>
+        </form>
+      @endforeach
+    </div>
+  </div>
+   @endif
+    
+      
+  <br>
   
     
 @endsection
@@ -147,6 +176,7 @@
   <link rel="stylesheet" href="{{ mix('css/tempusdominus.css') }}">
   <link rel="stylesheet" href="{{ mix('css/summernote.css') }}">
   <link rel="stylesheet" href="{{ mix('css/select2.css') }}">
+  <link rel="stylesheet" href="{{ mix('css/custom-admin-post-update.css') }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/dropzone.css">
 @endpush
 

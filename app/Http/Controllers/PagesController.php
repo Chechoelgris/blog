@@ -25,7 +25,7 @@ class PagesController extends Controller
 
     public function wellcome()
     {
-        return view('welcome');
+        return view('majime');
     }
 
     public function admin()

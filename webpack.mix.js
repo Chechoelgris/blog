@@ -12,6 +12,12 @@ const mix = require('laravel-mix');
  */
 
 mix
+    //CSS para pagina principal MAJIME.cl
+    .styles([
+        'resources/vendor/majime/carousel.css',
+    ], 'public/css/majime.css')
+        
+
     //CSS Para sistema de administracion
     .styles([
         'resources/vendor/fontawesome-free-5.13.0-web/css/all.min.css',
@@ -39,6 +45,12 @@ mix
     .styles([
         'resources/vendor/select2/css/select2.min.css',
     ], 'public/css/select2.css')
+    
+    
+    //CSS post.update perzonalizado
+    .styles([
+        'resources/css/custom-admin-post-update.css',
+    ], 'public/css/custom-admin-post-update.css')
 
     //CSS para el "Blog"
     .styles([
@@ -52,6 +64,7 @@ mix
         'resources/vendor/zendero/css/responsive.css',
         'resources/vendor/zendero/css/style.css',
     ], 'public/zendero/css/blog.css')
+
 
     .js('resources/js/app.js', 'public/js')
 

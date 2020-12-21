@@ -41,6 +41,7 @@ Route::group(['prefix' => 'blog'], function () {
             Route::put('posts/{post}', 'Admin\PostController@update')->name('admin.post.update');
             
             Route::post('posts/{post}/photos', 'Admin\PhotosController@store')->name('admin.posts.photo.store');
+            Route::delete('photos/{photo}', 'Admin\PhotosController@destroy')->name('admin.photos.destroy');
         }
     );
 

@@ -6,7 +6,20 @@
 @section('blog-content')
     <article class="post">
         
+        <div class="contenedor-galeria">
+            @if ($post->photos->count() === 1)
 
+                <figure><img src="{{ $post->photos()->first()->url }}" class="img-responsive" alt=""></figure>
+
+            @elseif($post->photos->count() > 1)
+                @foreach ($post->photos as $photo)
+                    
+                    <figure class="" style="position: relative">
+                        <img class="galeria__img2" src="{{  url($photo->url)  }}" alt="">
+                    </figure>
+                @endforeach
+            @endif
+        </div>
 
         <div class="content-post">
         <header class="container-flex space-between">

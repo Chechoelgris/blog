@@ -10,7 +10,10 @@
         <a href="{{ route('admin') }}" class="nav-link text-nav-dark-mode">Principal</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link text-nav-dark-mode  ">Contacto</a>
+        <a href="{{ route('blog') }}" class="nav-link text-nav-dark-mode  ">Blog</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="{{ route('admin') }}" class="nav-link text-nav-dark-mode  ">Contacto</a>
       </li>
     </ul>
 
